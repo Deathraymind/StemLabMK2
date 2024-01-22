@@ -1,9 +1,64 @@
-<mxfile host="app.diagrams.net" modified="2024-01-22T17:55:58.099Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0" version="22.1.21" etag="K2ErZvg50DSY-I0Rg1wq" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-22T18:02:19.774Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0" etag="TvMN9irXNejSqH7roEeU" version="22.1.21" type="github">
   <diagram name="Page-1" id="6mtPiEHwgz28ZsKCztRj">
-    <mxGraphModel>
+    <mxGraphModel dx="1434" dy="822" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u4EqbkOcz1CNJ_0qTdlZ-1" target="u4EqbkOcz1CNJ_0qTdlZ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-1" value="" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.firewall" vertex="1" parent="1">
+          <mxGeometry x="210" y="110" width="68.18" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u4EqbkOcz1CNJ_0qTdlZ-2" target="u4EqbkOcz1CNJ_0qTdlZ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-2" value="" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/switch/Switch_24_port_L3.svg;" vertex="1" parent="1">
+          <mxGeometry x="190" y="220" width="102.12" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-3" value="" style="image;html=1;image=img/lib/clip_art/networking/Wireless_Router_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="360" y="210" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-12" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u4EqbkOcz1CNJ_0qTdlZ-6" target="u4EqbkOcz1CNJ_0qTdlZ-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-6" value="" style="image;html=1;image=img/lib/clip_art/networking/Print_Server_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="60" y="330" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u4EqbkOcz1CNJ_0qTdlZ-7" target="u4EqbkOcz1CNJ_0qTdlZ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-7" value="" style="image;html=1;image=img/lib/clip_art/networking/Print_Server_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="160" y="330" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-8" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/internet_cloud.svg;" vertex="1" parent="1">
+          <mxGeometry x="570" y="210" width="180" height="113.4" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-13" value="" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.wireless_connection" vertex="1" parent="1">
+          <mxGeometry x="470" y="230" width="50.4" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-14" value="&lt;div&gt;Stemlab Pfsense&lt;/div&gt;&lt;div&gt;192.168.100.x/24&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="191.14000000000001" y="80" width="105.91" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-15" value="&lt;div&gt;stemlab.lan switch&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="220" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-16" value="&lt;div&gt;IOT Pi &lt;br&gt;&lt;/div&gt;&lt;div&gt;192.168.100.71&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-17" value="&lt;div&gt;Java Server&lt;/div&gt;&lt;div&gt;IP/UK&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-18" value="&lt;div&gt;Stemlab24&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="365" y="280" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u4EqbkOcz1CNJ_0qTdlZ-20" value="&lt;h1&gt;Stem Lab Wireless Devices&lt;br&gt;&lt;/h1&gt;&lt;p&gt;These devices include arduous coding and robotics laptops.&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="330" width="300" height="120" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
