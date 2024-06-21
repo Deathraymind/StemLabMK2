@@ -4,136 +4,166 @@
 
 **Trunked and Access Ports Configuration Guide**
 
-This documentation provides step-by-step instructions for configuring trunked and access ports on a trunk switch (top switch) and a cyber switch (bottom Brocade switch) using Cisco and Brocade commands. It includes the setup of VLANs, tagging, and port configurations.
+This documentation provides step-by-step instructions for configuring trunked and access ports on RackSW (bottom switch) and RackSW-2 (top switch) using Cisco commands. It includes the setup of VLANs, tagging, and port configurations.
 
 ---
 
 **1. Terminology**
 
-- **Untagged**: Denotes access ports. Traffic on these ports is not encapsulated with VLAN tags.
-- **Tagged**: Refers to trunked ports. Traffic on these ports is encapsulated with VLAN tags.
-- **VLAN 10**: Represents a virtual interface configured for VLAN 10.
+- **Access**: Denotes access/untagged ports. Traffic on these ports are not encapsulated with VLAN tags.
+- **Trunk**: Refers to trunk/tagged ports. Traffic on these ports are encapsulated with VLAN tags.
+- **VLAN**: Stands for Virtual Local Area Network (LAN). 
 
-### **2. Configuration on Trunk Switch (Top Switch)**
+### **2. Configuration on RackSW (Bottom Switch)**
 
-**Red Ports (Multi-VLAN Ports for Switches and Routers)**:
-
-```
-enable
-conf t
-vlan 10
-tagg e 1/1/1 to 1/1/6
-interface e 1/1/1 to 1/1/6
-dual-mode 1
-exit
-exit
-write mem
-```
-
-**Green Ports (Multi-VLAN Ports with POE for APs)**:
-
-```
-enable
-conf t
-vlan 10
-tagg e 1/1/7 to 1/1/12
-exit
-interface e 1/1/7 to 1/1/12
-inline power
-dual-mode 1
-exit
-exit
-write mem
-```
-
-### **3. Configuration on Cyber Switch (Bottom Brocade Switch)**
-
-**Red Ports**:
-
-```
-enable
-conf t
-vlan 10
-tagg 1/1/1 to 1/1/6
-exit
-interface e 1/1/1 to 1/1/6
-dual-mode 1
-exit
-exit
-write mem
-```
-
-**Blue Ports (Untagged Interfaces for VLAN 10 Devices)**:
-
-```
-vlan 10
-untagg e 1/1/13 to 1/1/24
-exit
-exit
-write mem
-```
-
-**4. Additional Terminology and Tips for brocade**
-
-- **Inline Power**: Enables Power over Ethernet (POE) on the specified ports.
-- **Dual-Mode 1**: Sets the native VLANs on ports to VLAN 1 or the basic LAN configuration.
-- **Module Configuration**: Modules must be configured one at a time, specifying `1/x/x` format for port identification.
-- To view available interfaces: 
-  ```
-  enable
-  show interfaces brief
-  ```
-
-### Cisco Switch Configuration
-
-**Blue Ports (Configuring VLAN 10)**:
+**Creating VLANS**
 
 ```
 enable
 configure terminal
 vlan 10
 name Cyber
+vlan 100
+name Stemlab
+vlan 254
+name Management
 exit
-exit
-wr mem
 ```
 
-**Blue Ports (Configuring Untagged/Access Interface for VLAN 10)**:
+**Trunk Ports**
 
 ```
-enable
-configure terminal
-interface range g1/0/1 - g1/0/22
+interface range g1/0/1 - 8
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan none
+switchport trunk allowed vlan add 1,10,100,254
+```
+
+**POE enabled Trunk Ports**
+
+```
+interface range g1/0/9 - 16
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan none
+switchport trunk allowed vlan add 1,10,100,254
+power inline auto
+```
+
+**VLAN10 Access Ports**
+
+```
+interface range g1/0/17 - 24
+switchport mode access
+swtichport access vlan 10
+interface range g1/0/37 - 48
 switchport mode access
 switchport access vlan 10
+```
+
+**VLAN100 Access Ports**
+
+```
+interface range g1/0/25 - 36
+switchport mode access
+switchport access vlan 100
 exit
 exit
 wr mem
 ```
 
-**Red Port (Configuring Tagged/Trunk Interface)**:
+**Configuring SSH**
 
 ```
-show ip interfaces brief
+enable 
+configure terminal
+ip domain name goon.lan
+hostname RackSW
+enable secret 1234qwer!@#$QWER
+username administrator secret amongus
+crypto key generate rsa
+2048
+ip ssh version 2
+interface vlan 254
+ip address 172.16.254.11 255.255.255.0 
+no shut
+exit
+ip default-gateway 172.16.254.1
+access-list 1 permit 172.16.254.0 0.0.0.255
+access-list 1 permit 172.16.10.0 0.0.0.255
+line vty 0 15 
+login local
+exec-timeout 5 0
+transport input ssh
+access-class 1 in
+exit
+exit
+wr mem
+```
 
+### **3. Configurations on RackSW-2 (Top switch)**
+
+**Creating VLANS**
+
+```
 enable
 configure terminal
-interface gigabitethernet1/0/23
+hostname RackSW-2
+vlan 10
+name Cyber
+vlan 100
+name Stemlab
+vlan 254
+name Management
+exit
+```
+
+**Trunk Ports**
+
+```
+interface range g0/1 - 8
 switchport trunk encapsulation dot1q
-switchport mode trunk 
+switchport mode trunk
 switchport trunk allowed vlan none
-switchport trunk allowed vlan add 1
-switchport trunk allowed vlan add 10
-no shutdown
+switchport trunk allowed vlan add 1,10,100,254
+```
+
+**Access Ports**
+
+```
+interface range g0/9 - 16
+switchport mode access
+switchport access vlan 10
+interface range g0/17 - 24
+switchport mode access 
+switchport access vlan 100
+exit
+```
+
+**Configuring SSH**
+
+```
+interface vlan 254
+ip address 172.16.254.12 255.255.255.0
+no shut
+exit
+ip default-gateway 172.16.254.1
+exit
+enable secret 1234qwer!@#$QWER
+username administrator secret amongus
+access-list 1 permit 172.16.254.0 0.0.0.255
+access-list 1 permit 172.16.10.0 0.0.0.255
+ip domain name goon.lan
+crypto key generate rsa
+2048
+ip ssh version 2 
+line vty 0 15 
+login local
+exec-timeout 5 0
+transport input ssh
+access-class 1 in
 exit
 exit
 wr mem
 ```
-**Side Note**: The "switchport trunk encapsulation dot1q" command may not be needed, though if this error message shows:
-```
-Command rejected: an interface whose trunk encapsulation is "auto" can not be configure
-```
-then type in the command.
-
-
-
