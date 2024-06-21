@@ -6,6 +6,8 @@
 
 This documentation provides step-by-step instructions for configuring trunked and access ports on RackSW (bottom switch) and RackSW-2 (top switch) using Cisco commands. It includes the setup of VLANs, tagging, and port configurations.
 
+***Note:** Please refer to "Rack Switch Mapping" and "Rack Switch-2 Mapping" (Network Diagrams) to confirm how the devices' ports should be configured. Contact your Chief Network Engineer for any other questions.*
+
 ---
 
 **1. Terminology**
