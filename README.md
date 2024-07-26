@@ -8,22 +8,35 @@ The STEMlab Network Mk2 is designed to facilitate a physical network separation 
 
 The lab is segmented into two distinct local networks, each with its own pfSense instance:
 
-1. **Stemlab.lan**
-2. **Cyber.lan**
-
-### Stemlab.lan Network
-- **DHCP Server**: Hosted on a physical computer within the server rack.
-- **Network Range**: 192.168.100.x/24.
-- **Wireless Access Point**: Named `stemlab24`.
-- **Characteristics**: Features a basic setup with limited servers, tailored for general lab activities.
+1. **Stemlab**
+2. **Cyber**
+3. **Stemlab Cafe**
 
 ### Cyber.lan Network
-- **DHCP Server**: Is a VLAN on pfsense.
-- **Address Range**: 172.16.x.x/16.
-- **Wireless SSID**: `sillynet`.
+- **VLAN**: 1
+- **DHCP Server**: 172.16.1.20 - 172.16.1.254
+- **Address Range**: 172.16.1.x/24.
+- **Wireless SSID**: `sillynet` (HIDDEN OR OFF).
 - **Core Objective**: Serves as an experimental sandbox for students, enabling them to undertake projects without impacting other lab sections.
 - **Documentation Focus**: Detailed guidance on setting up a PXE server, Domain Controller, and OpenMediaVault server.
-- **Additional Info**: This network is the primary subject of the GitHub documentation, due to its complex setup and educational purpose.
+- **Additional Info**: This is where alot of servcies will be hosted with more strict firewall rules.
+
+### Stemlab.lan Network
+- **VLAN**: 10
+- **DHCP Server**: 10.0.0.10 - 10.0.0.254
+- **Network Range**: 10.0.0.x/24.
+- **Wireless Access Point**: Named `Stemlab Cafe`.
+- **Characteristics**: Has a captive portal so we can sell internet logins.
+
+
+### Stemlab.lan Network
+- **VLAN**: 100
+- **DHCP Server**: 192.168.100.20 - 192.168.100.254
+- **Network Range**: 192.168.100.x/24.
+- **Wireless Access Point**: Named `stemlab24`.
+- **Characteristics**: This will hold all IOT projects and clients that need to connect to the AD server aka laptops.
+
+
 
 ## Rationale for Physical Separation
 
