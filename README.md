@@ -9,10 +9,10 @@ The STEMlab Network Mk2 is designed to facilitate a physical network separation 
 The lab is segmented into two distinct local networks, each with its own pfSense instance:
 
 1. **Stemlab**
-2. **Cyber**
+2. **Silly**
 3. **Stemlab Cafe**
 
-### Cyber.lan Network
+### Silly Network
 - **VLAN**: `1`
 - **DHCP Server**: `172.16.1.20 - 172.16.1.254`
 - **Address Range**: `172.16.1.x/24`
@@ -21,7 +21,7 @@ The lab is segmented into two distinct local networks, each with its own pfSense
 - **Documentation Focus**: Detailed guidance on setting up a PXE server, Domain Controller, and OpenMediaVault server.
 - **Additional Info**: This is where alot of servcies will be hosted with more strict firewall rules.
 
-### Stemlab.lan Network
+### Stemlab Cafe Network
 - **VLAN**: `10`
 - **DHCP Server**: `10.0.0.10 - 10.0.0.254`
 - **Network Range**: `10.0.0.x/24`
@@ -29,7 +29,7 @@ The lab is segmented into two distinct local networks, each with its own pfSense
 - **Characteristics**: Has a captive portal so we can sell internet logins.
 
 
-### Stemlab.lan Network
+### Stemlab24 Network
 - **VLAN**: `100`
 - **DHCP Server**: `192.168.100.20 - 192.168.100.254`
 - **Network Range**: `192.168.100.x/24`
