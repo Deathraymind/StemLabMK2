@@ -60,17 +60,15 @@ This guide outlines the steps to configure interfaces and set up DHCP servers on
    - Enable DHCP Server.
    - Range: `192.168.100.20 - 192.168.100.254`
 
-  <div style="border: 1px solid red; padding: 10px; background-color: #f8d7da; color: #721c24;">
-   <strong>WARNING:</strong>
-   <ul>
-      <li>Edit the DNS to point to your Active Directory server to resolve hostnames such as <code>cyber.lan</code>.</li>
-      <li>This will bypass the captive portal redirection, meaning users will not log in through the captive portal. This is acceptable as this network is not intended for user access.</li>
-      <li>Access the captive portal via <code>192.168.100.1</code>.</li>
-      <li>Whitelist devices by MAC address to allow network access.</li>
-   </ul>
-</div>
+   **WARNING:**
+   - Edit the DNS to point to your Active Directory server to resolve hostnames such as `cyber.lan`.
+   - This will bypass the captive portal redirection, meaning users will not log in through the captive portal. This is acceptable as this network is not intended for user access.
+   - Access the captive portal via `192.168.100.1`.
+   - Whitelist devices by MAC address to allow network access.
 
    - Save and Apply.
+  
+   - REBOOT TO APPLY VLAN INTERFACES WILL NOT WORK WITHOUT REBOOT FREEBSD NEEDS THIS REBOOT!!!!!
 
 ## Conclusion
 
