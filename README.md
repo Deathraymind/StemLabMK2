@@ -6,7 +6,7 @@ The STEMlab Network Mk2 is designed to facilitate a physical network separation 
 
 ## Network Composition
 
-The lab is segmented into two distinct local networks, each with its own pfSense instance:
+
 
 1. **Stemlab**
 2. **Silly**
@@ -38,11 +38,6 @@ The lab is segmented into two distinct local networks, each with its own pfSense
 
 
 
-## Rationale for Physical Separation
-
-Our transition away from VLANs was motivated by several factors:
-- **Maintenance and Operational Challenges**: The complexity introduced by VLANs led to increased maintenance demands and potential network downtime.
-- **Educational Impediments**: VLANs presented a steep learning curve, potentially limiting the ability of new students to effectively engage with the network.
 
 ## Conclusion
 
