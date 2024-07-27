@@ -61,10 +61,8 @@ This guide outlines the steps to configure interfaces and set up DHCP servers on
    - Range: `192.168.100.20 - 192.168.100.254`
 
    **WARNING:**
-   - Edit the DNS to point to your Active Directory server to resolve hostnames such as `cyber.lan`.
-   - This will bypass the captive portal redirection, meaning users will not log in through the captive portal. This is acceptable as this network is not intended for user access.
-   - Access the captive portal via `192.168.100.1`.
-   - Whitelist devices by MAC address to allow network access.
+   - IF YOU Edit the DNS to point to your Active Directory server to resolve hostnames such as `cyber.lan`. This will bypass the captive portal redirection, meaning users will not log in through the captive portal. This is acceptable as this network is not intended for user access.
+   - You will have to maunauly access the captive portal via `192.168.100.1`, and whitelist devices by MAC address to allow network access.
 
    - Save and Apply.
   
