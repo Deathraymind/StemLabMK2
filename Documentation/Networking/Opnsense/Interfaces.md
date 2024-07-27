@@ -1,70 +1,77 @@
-On opnsense you have to make specific interfaces first, we have 4 main interfaces we need to create. WAN which sould be good to go already and then LAN for Sillynet aka cyber and two virtual interfaces for Stemlab and Stemlabcafe.
+# OPNsense Interface and DHCP Server Configuration Guide
 
-So lets start by making the virtual interfaces. login to the opnsense router which sould be 172.16.1.1 if you set the LAN correctly and DHCP server while installing.
+This guide outlines the steps to configure interfaces and set up DHCP servers on OPNsense for four main interfaces: WAN, LAN (Sillynet/Cyber), and two virtual interfaces for Stemlab and Stemlabcafe.
 
-Go to interfaces>Other types>VLAN and select the add button and configure the two VLAN interfaces as shown below
+## Step 1: Configure Virtual Interfaces
 
-Device:Vlan0.10
-parent:igb0 aka LAN
-vlan tag:10 
-Descritption: stemlab cafe
+1. **Login to OPNsense Router:**
+   - Ensure the LAN is correctly set up with the DHCP server during installation.
+   - Access the router at `172.16.1.1`.
 
-Device vlan0.100 
-Parent:igb0 aka LAN
-VLAN tag:100
-Description:stemlab cafe
+2. **Create VLAN Interfaces:**
+   - Navigate to `Interfaces > Other Types > VLAN`.
+   - Click the `Add` button and configure the VLAN interfaces as follows:
 
-Now we need to make these actual interfaces we can apply services too.
+   **Stemlab Cafe Interface:**
+   - Device: `vlan0.10`
+   - Parent: `igb0` (LAN)
+   - VLAN Tag: `10`
+   - Description: `Stemlab Cafe`
 
-goto interfaces>Assignments
+   **Stemlab Interface:**
+   - Device: `vlan0.100`
+   - Parent: `igb0` (LAN)
+   - VLAN Tag: `100`
+   - Description: `Stemlab`
 
-simply click add two times so that both of our interfaces are added
+3. **Assign VLAN Interfaces:**
+   - Go to `Interfaces > Assignments`.
+   - Click `Add` twice to add both VLAN interfaces.
+   - You should now see `OPT4` and `OPT5`. Note which interface corresponds to Stemlab and Stemlab Cafe.
 
-Now you sould see OPT4 and OPT5 please look at which interface is stemlab and cafe to procede to the next steps
+## Step 2: Configure Interface Settings
 
-click on the interface OPT4 or OPT5 that is stemlab cafe or vlan 10
+1. **Stemlab Cafe (VLAN 10):**
+   - Click on the interface `OPT4` or `OPT5` that corresponds to Stemlab Cafe.
+   - Check `Enable Interface`.
+   - Description: `igb010`
+   - IPv4 Configuration Type: `Static IPv4`
+   - IPv4 Address: `10.0.0.1/24`
+   - Save and Apply.
 
-check enable interface
-description:igb010
-IPv4 Configuration: Type Static ipv4
-IPv4 Address: 10.0.0.1/24
+2. **Stemlab (VLAN 100):**
+   - Select the interface corresponding to Stemlab.
+   - Check `Enable Interface`.
+   - Description: `igb0100`
+   - IPv4 Configuration Type: `Static IPv4`
+   - IPv4 Address: `192.168.100.1/24`
+   - Save and Apply.
 
-save apply
-Now select the interface that corolates to the stemlab
+## Step 3: Configure DHCP Servers
 
-enable the interface
-description: igb0100
-IPv4 Configuration Type: static IPv4
-IPv4 address 192.168.100.1/24 
+1. **Stemlab Cafe DHCP Server (VLAN 10):**
+   - Navigate to `Services > ISC DHCPv4 > igb010`.
+   - Enable DHCP Server.
+   - Range: `10.0.0.20 - 10.0.0.254`
+   - Save and Apply.
 
-save apply
+2. **Stemlab DHCP Server (VLAN 100):**
+   - Go to `Services > ISC DHCPv4 > igb0100`.
+   - Enable DHCP Server.
+   - Range: `192.168.100.20 - 192.168.100.254`
 
-Now were done with the actaul vlan interfaces note that LAN sould already be set up correctly during the install process so we dont have to touch it. 
+  <div style="border: 1px solid red; padding: 10px; background-color: #f8d7da; color: #721c24;">
+   <strong>WARNING:</strong>
+   <ul>
+      <li>Edit the DNS to point to your Active Directory server to resolve hostnames such as <code>cyber.lan</code>.</li>
+      <li>This will bypass the captive portal redirection, meaning users will not log in through the captive portal. This is acceptable as this network is not intended for user access.</li>
+      <li>Access the captive portal via <code>192.168.100.1</code>.</li>
+      <li>Whitelist devices by MAC address to allow network access.</li>
+   </ul>
+</div>
 
+   - Save and Apply.
 
-DHCP Servers
+## Conclusion
 
-
-We want to create a dhcp server so we can hand out IPs to newly connected devices so to do this go to Services>ISC DHCPv4>igb010
-
-this was our vlan10 interface aka stemlab cafe
-
-enable dhcp server
-range:10.0.0.20 - 10.0.0.254
-
-save apply were not going to need to edit DNS or else captive portal will not work 
-
-now go to Services>ISC DHCPv4>igb0100
-
-Enable DHCP Server
-192.168.100.20 - 192.168.100.254
-
-WARNING
-you are going to need to edit the DNS to point to youre active directory server so its hostname such as cyber.lan can be resolved. Now the issue with this is it will bypass the captive portal redirection meaning that the user will not be able to login, this however is perfectly fine as we dont really want users to be accsessing this network. The login for the captive portal will ofcourse still be accsessed via 192.168.100.1. However devices on this network sould be whitelisted via mac address. So when you join a new DELL laptop or ardiono it will not be able to accsess the internet and parts of the network until it is whitelisted in the captive portal area. 
-END OF WARNING
-
-Save and Apply
-
-
-
-
+The configuration of the VLAN interfaces and DHCP servers on OPNsense is now complete. Ensure that the LAN interface was correctly set up during the installation, and no further adjustments are needed for it. If additional configurations or troubleshooting is required, refer to the OPNsense documentation or support resources.
