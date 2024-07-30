@@ -35,6 +35,7 @@ This document provides detailed steps to set up captive portals for VLAN 10 (Ste
    - **Name**: Stemlab Cafe.
    - **Interface**: Select the interface corresponding to VLAN 10 (e.g., igb010).
    - **Authentication**: Select the Stemlab Cafe Voucher Server created earlier.
+   - **Concurrent user logins**: Uncheck this so that vouchers are one time use. 
    - **Description**: Stemlab Cafe.
 3. **Save the Captive Portal Configuration**:
    - Click on the "Save" button to activate the captive portal for Stemlab Cafe.
