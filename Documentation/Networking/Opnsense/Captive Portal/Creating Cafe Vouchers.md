@@ -22,8 +22,8 @@ Ensure that your captive portal is set up and ready to use. Follow the initial s
    - Click on the "Create" button to generate a new voucher batch.
 
 2. **Set Voucher Details**:
-   - **Validity**: This defines the time window within which the voucher can be redeemed after its initial use. Since these are one-time use vouchers, set the validity to **1 minute**.
-   - **Expires**: This determines the duration for which the user will have internet access after redeeming the voucher. Create different voucher batches for varying durations (e.g., a week, a month, a year). For this example, set it to **1 month**.
+   - **Validity**: This determines the duration for which the user will have internet access after redeeming the voucher. Create different voucher batches for varying durations (e.g., a week, a month, a year). For this example, set it to **1 month**.
+   - **Expires**: How much time the voucher can go idle unused.
    - **Number of Vouchers**: Enter the quantity of vouchers you want to create in this batch. For this example, set it to **25**.
    - **Name**: Give the voucher batch a descriptive name such as **Month Pass**.
 
