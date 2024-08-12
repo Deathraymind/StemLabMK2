@@ -1,4 +1,4 @@
-# Installation Guide for FOG Server on Ubuntu Server
+# Installation Guide for FOG Server on Debian Server
 
 This guide will walk you through the installation process of setting up a FOG Server on an Ubuntu Server. FOG is an open-source cloning/imaging solution used for managing and deploying computer systems. Follow these steps carefully to ensure a successful installation.
 
