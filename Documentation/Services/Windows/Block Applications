@@ -5,15 +5,19 @@ Press Win + R, type gpmc.msc, and press Enter.
 Create a New Group Policy Object (GPO):
 Right-click on the domain or organizational unit where you want to apply the policy, select "Create a GPO in this domain, and Link it here".
 Name your new GPO, e.g., "Block Applications".
+
 Edit the GPO:
 Right-click the new GPO and select "Edit".
 Navigate to Computer Configuration > Policies > Windows Settings > Security Settings > Software Restriction Policies.
+
 Create New Software Restriction Policies:
 If no policies are defined, right-click on "Software Restriction Policies" and select "New Software Restriction Policies".
+
 Define Additional Rules:
 Right-click "Additional Rules" and select "New Path Rule" (or other rule types like hash rule, certificate rule, or network zone rule).
 In the "Path" field, enter the path of the application you want to block (e.g., C:\Program Files\AppToBlock\app.exe).
 Set the "Security Level" to "Disallowed".
+
 Apply the GPO:
 Close the Group Policy Management Editor.
 Ensure the GPO is linked to the correct organizational unit or domain.
