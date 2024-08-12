@@ -1,10 +1,10 @@
 # Installation Guide for FOG Server on Debian Server
 
-This guide will walk you through the installation process of setting up a FOG Server on an Ubuntu Server. FOG is an open-source cloning/imaging solution used for managing and deploying computer systems. Follow these steps carefully to ensure a successful installation.
+This guide will walk you through the installation process of setting up a FOG Server on an Debian Server. FOG is an open-source cloning/imaging solution used for managing and deploying computer systems. Follow these steps carefully to ensure a successful installation.
 
 ## Before You Begin:
 
-- Ensure that you have a fresh Ubuntu Server installation.
+- Ensure that you have a fresh Debian Server installation.
 - Take a snapshot or backup of your virtual machine to ensure you can revert in case of issues.
 
 ## Step 1: Update Your System
