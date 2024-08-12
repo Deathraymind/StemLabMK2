@@ -12,7 +12,7 @@ Ensure that your captive portal is set up and ready to use. Follow the initial s
 
 ### Step 1: Accessing Voucher Services
 
-1. **Navigate to Services > Vouchers**:
+1. **Navigate to Services > Captive Portal > Vouchers**:
    - Go to the Services menu in your network management interface.
    - Select Vouchers from the dropdown menu.
 
