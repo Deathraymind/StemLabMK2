@@ -10,14 +10,14 @@ This guide will walk you through the installation process of setting up a FOG Se
 ## Step 1: Update Your System
 
 ```bash
-sudo apt-get update
-sudo apt-get dist-upgrade -y
+apt-get update
+apt-get dist-upgrade -y
 ```
 
 ## Step 2: Switch to Root User (Optional)
 
 ```bash
-sudo -i
+su -
 ```
 
 Switching to the root user allows you to execute commands without using 'sudo' repeatedly.
