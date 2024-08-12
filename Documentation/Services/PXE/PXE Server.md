@@ -101,9 +101,9 @@ For UEFI devices like the Latitude laptops, we'll need to utilize the "snponly.e
 
 To set up the PXE boot file, follow these steps:
 
-- Access the web address of the newly created pfSense router, which, in our case, involves plugging into the PXE switch we've established and entering "192.168.4.1" in your browser.
+- Access the web address of the newly created opnSense router, which, in our case, involves plugging into the PXE switch we've established and entering "172.16.1.1" in your browser.
 - Login and navigate to "Services" > "DHCP Server."
 - Scroll down to the "Network Booting" section and enable it.
-- Enter the IP address of our FOG server
+- Enter the IP address of our FOG server. (172.16.1.55)
 - Insert the "snponly.efi" file into the default BIOS file name.
 - Save the settings, and you're all set. You should now be able to boot into the network interface and access the FOG boot file via Ethernet.
