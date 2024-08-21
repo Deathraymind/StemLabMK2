@@ -1,4 +1,7 @@
-
+Images Required:
+Robotics Windows 11 VMware, Arduino, Chrome
+Cyber Windows 11
+Cyber Ubuntu Latest Version
 
 ### 1. Accessing the PXE Server
 - First, determine the IP address of your PXE server. This can usually be found in the server's documentation or by checking the network topology. If you're using Proxmox, you can obtain the IP by running `ip a` in the proxy VM.
